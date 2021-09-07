@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MyFamily</string>
+    <string name="security">Security</string>
+    <string name="sos">SOS</string>
+    <string name="home">Home</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="guard">Guard</string>
+    <string name="user">User</string>
+    <string name="in_case_of_emergency_keep_telling_family_members_to_contact_me">In case of emergency, keep telling family members to contact me</string>
+    <string name="open_when_you_are_on_a_potentially_dangerous_journey">Open when you are on a potentially dangerous journey</string>
+    <string name="my_family">My Family</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

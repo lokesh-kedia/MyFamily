@@ -1,0 +1,114 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:text="@string/security"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_16_sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/pink_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_180"
+        android:layout_margin="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/pink"
+        app:cardCornerRadius="@dimen/dimen_16"
+        app:cardElevation="@dimen/dimen_16"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/text_sos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:text="@string/sos"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_24"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/pink_card"
+        app:layout_constraintTop_toTopOf="@id/pink_card" />
+
+    <TextView
+        android:id="@+id/sos_msg"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:text="@string/in_case_of_emergency_keep_telling_family_members_to_contact_me"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/sos_img"
+        app:layout_constraintStart_toStartOf="@id/pink_card"
+        app:layout_constraintTop_toBottomOf="@id/text_sos" />
+
+    <ImageView
+        android:id="@+id/sos_img"
+        android:layout_width="@dimen/dimen_96"
+        android:layout_height="@dimen/dimen_96"
+        android:layout_margin="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_sos"
+        app:layout_constraintBottom_toBottomOf="@id/pink_card"
+        app:layout_constraintEnd_toEndOf="@id/pink_card"
+        app:layout_constraintTop_toTopOf="@id/pink_card" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/green_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_180"
+        android:layout_margin="@dimen/dimen_16"
+        app:cardBackgroundColor="@color/green"
+        app:cardCornerRadius="@dimen/dimen_16"
+        app:cardElevation="@dimen/dimen_16"
+        app:layout_constraintTop_toBottomOf="@id/pink_card" />
+
+    <TextView
+        android:id="@+id/text_guard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:text="@string/guard"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/green_card"
+        app:layout_constraintTop_toTopOf="@id/green_card" />
+
+    <TextView
+        android:id="@+id/guard_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:text="@string/open_when_you_are_on_a_potentially_dangerous_journey"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/guard_img"
+        app:layout_constraintStart_toStartOf="@id/green_card"
+        app:layout_constraintTop_toBottomOf="@id/text_guard" />
+
+    <ImageView
+        android:id="@+id/guard_img"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_guard"
+        app:layout_constraintBottom_toBottomOf="@id/green_card"
+        app:layout_constraintEnd_toEndOf="@id/green_card"
+        app:layout_constraintTop_toTopOf="@id/green_card" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
