@@ -17,12 +17,15 @@
         <entry key="..\:/AndroidProjects/MyFamily/app/src/main/res/menu/my_navigation_items.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/drawable/ic_battery.xml" value="0.290625" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/drawable/ic_send_msg.xml" value="0.290625" />
+        <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/drawable/shape_circle.xml" value="0.28615384615384615" />
+        <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/drawable/shape_rounded_rect.xml" value="0.28615384615384615" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/dummy.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/fragment_dashboard.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/fragment_guard.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/item_member.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/lokes/Documents/GitHub/MyFamily/app/src/main/res/layout/item_member.xml" value="0.4" />
       </map>
     </option>
   </component>

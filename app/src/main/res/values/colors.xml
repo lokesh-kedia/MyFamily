@@ -11,5 +11,6 @@
     <color name="gray_bg">#e5e7e9</color>
     <color name="green">#63d2c8</color>
     <color name="dark_green">#27a097</color>
+    <color name="light_green">#98fffb</color>
     <color name="pink">#f0737b</color>
 </resources>
