@@ -2,16 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/gray_bg">
 
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_180"
-        android:layout_margin="@dimen/dimen_16"
+        android:layout_height="145dp"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:layout_marginBottom="12dp"
         app:cardCornerRadius="@dimen/dimen_16"
-        app:cardElevation="@dimen/dimen_16"
+        app:cardElevation="@dimen/dimen_8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,8 +25,7 @@
         android:layout_height="64dp"
         android:layout_margin="@dimen/dimen_16"
         android:elevation="@dimen/dimen_16"
-        android:src="@drawable/ic_user"
-        app:layout_constraintBottom_toBottomOf="@id/card"
+        android:src="@drawable/ic_user_color"
         app:layout_constraintStart_toStartOf="@id/card"
         app:layout_constraintTop_toTopOf="@id/card" />
 
@@ -38,5 +41,132 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/img_user"
         app:layout_constraintTop_toTopOf="@id/card" />
+
+    <ImageView
+        android:id="@+id/img_location"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="12dp"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_location_icon"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:tint="@color/green" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:text="9th buildind, 2nd floor, maldiv road, manali 9th buildind, 2nd floor"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="@id/card"
+        app:layout_constraintStart_toEndOf="@id/img_location"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:text="16:40"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/card"
+        app:layout_constraintTop_toTopOf="@id/name" />
+
+    <ImageView
+        android:id="@+id/img_battery"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_battery"
+        app:layout_constraintStart_toStartOf="@id/img_user"
+        app:layout_constraintTop_toBottomOf="@id/img_user"
+        app:tint="@color/green" />
+
+    <TextView
+        android:id="@+id/battery_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:elevation="@dimen/dimen_16"
+        android:text="90%"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/img_battery"
+        app:layout_constraintStart_toEndOf="@id/img_battery"
+        app:layout_constraintTop_toTopOf="@id/img_battery" />
+
+
+    <ImageView
+        android:id="@+id/img_distance"
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_send_msg"
+        app:layout_constraintStart_toEndOf="@id/battery_percent"
+        app:layout_constraintTop_toBottomOf="@id/img_user"
+        app:tint="#b197dc" />
+
+    <TextView
+        android:id="@+id/distance_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:elevation="@dimen/dimen_16"
+        android:text="223M"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/img_battery"
+        app:layout_constraintStart_toEndOf="@id/img_distance"
+        app:layout_constraintTop_toTopOf="@id/img_battery" />
+
+    <ImageView
+        android:id="@+id/img_wifi"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_wifi"
+        app:layout_constraintStart_toEndOf="@id/distance_value"
+        app:layout_constraintTop_toBottomOf="@id/img_user"
+        app:tint="@color/green" />
+
+    <TextView
+        android:id="@+id/wifi_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:elevation="@dimen/dimen_16"
+        android:text="WiFi"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/img_battery"
+        app:layout_constraintStart_toEndOf="@id/img_wifi"
+        app:layout_constraintTop_toTopOf="@id/img_battery" />
+
+    <ImageView
+        android:id="@+id/img_call"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="@dimen/dimen_16"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:layout_marginTop="@dimen/dimen_16"
+        android:elevation="@dimen/dimen_16"
+        android:src="@drawable/ic_call"
+        app:layout_constraintBottom_toBottomOf="@id/img_battery"
+        app:layout_constraintEnd_toEndOf="@id/card"
+        app:layout_constraintTop_toTopOf="@id/img_battery"
+        app:tint="@color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

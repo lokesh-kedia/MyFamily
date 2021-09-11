@@ -10,5 +10,6 @@
     <color name="darker_gray">#b3b5b7</color>
     <color name="gray_bg">#e5e7e9</color>
     <color name="green">#63d2c8</color>
+    <color name="dark_green">#27a097</color>
     <color name="pink">#f0737b</color>
 </resources>
