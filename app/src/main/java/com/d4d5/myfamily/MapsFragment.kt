@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -32,6 +33,13 @@ class MapsFragment : Fragment() {
         val sydney = LatLng(27.1751, 78.0421)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker on Taj"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            googleMap.isMyLocationEnabled = true
+        }
     }
 
     override fun onCreateView(
