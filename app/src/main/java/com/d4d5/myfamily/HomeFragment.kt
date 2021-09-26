@@ -9,10 +9,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.R.id
+import android.util.Log
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class HomeFragment : Fragment() {
 
+    private val listContacts: ArrayList<ContactModel> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,6 +35,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("FetchContact89", "onViewCreated: ")
 
         val listMembers = listOf<MemberModel>(
             MemberModel(
@@ -63,8 +70,23 @@ class HomeFragment : Fragment() {
         recycler.layoutManager = LinearLayoutManager(requireContext())
         recycler.adapter = adapter
 
+        Log.d("FetchContact89", "fetchContacts: start karne wale hai")
 
-        val inviteAdapter = InviteAdapter(fetchContacts())
+        Log.d("FetchContact89", "fetchContacts: start hogya hai ${listContacts.size}")
+        val inviteAdapter = InviteAdapter(listContacts)
+        Log.d("FetchContact89", "fetchContacts: end hogya hai")
+
+        CoroutineScope(Dispatchers.IO).launch {
+            Log.d("FetchContact89", "fetchContacts: coroutine start")
+            listContacts.addAll(fetchContacts())
+
+            withContext(Dispatchers.Main){
+                inviteAdapter.notifyDataSetChanged()
+            }
+            Log.d("FetchContact89", "fetchContacts: coroutine end ${listContacts.size}")
+        }
+
+
 
         val inviteRecycler = requireView().findViewById<RecyclerView>(R.id.recycler_invite)
         inviteRecycler.layoutManager =
@@ -77,6 +99,7 @@ class HomeFragment : Fragment() {
 
     private fun fetchContacts(): ArrayList<ContactModel> {
 
+        Log.d("FetchContact89", "fetchContacts: start")
         val cr = requireActivity().contentResolver
         val cursor = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
 
@@ -124,7 +147,7 @@ class HomeFragment : Fragment() {
             }
 
         }
-
+        Log.d("FetchContact89", "fetchContacts: end")
         return listContacts
 
     }
