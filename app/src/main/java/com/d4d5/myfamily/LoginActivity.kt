@@ -62,6 +62,9 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("Fire89", "signInWithCredential:success")
+
+                    SharedPref.putBoolean(PrefConstants.IS_USER_LOGGED_IN, true)
+
                     val user = auth.currentUser
 
                     startActivity(Intent(this, MainActivity::class.java))

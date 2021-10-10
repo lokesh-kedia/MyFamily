@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
+import android.widget.ImageView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -93,6 +95,15 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         inviteRecycler.adapter = inviteAdapter
 
+
+        val threeDots = requireView().findViewById<ImageView>(R.id.icon_three_dots)
+        threeDots.setOnClickListener {
+
+            SharedPref.putBoolean(PrefConstants.IS_USER_LOGGED_IN,false)
+
+            FirebaseAuth.getInstance().signOut()
+
+        }
 
     }
 
