@@ -111,4 +111,45 @@
         app:layout_constraintEnd_toEndOf="@id/green_card"
         app:layout_constraintTop_toTopOf="@id/green_card" />
 
+    <EditText
+        android:id="@+id/invite_mail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:hint="Enter Email of whom you want to invite"
+        app:layout_constraintBottom_toBottomOf="@id/send_invite"
+        app:layout_constraintEnd_toStartOf="@id/send_invite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/send_invite" />
+
+    <Button
+        android:id="@+id/send_invite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Invite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/green_card" />
+
+    <TextView
+        android:id="@+id/your_invites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:text="Your Invites : "
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_16_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/invite_mail" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/invite_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/dimen_16"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/your_invites"
+        tools:listitem="@layout/item_invite_mail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,13 +3,16 @@ package com.d4d5.myfamily
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.d4d5.myfamily.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,16 +23,17 @@ class MainActivity : AppCompatActivity() {
     )
     val permissionCode = 78
 
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         askForPermission()
 
-        val bottomBar = findViewById<BottomNavigationView>(R.id.bottom_bar)
-
-        bottomBar.setOnItemSelectedListener { menuItem ->
+        binding.bottomBar.setOnItemSelectedListener { menuItem ->
 
             when (menuItem.itemId) {
                 R.id.nav_home -> {
@@ -49,7 +53,31 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        bottomBar.selectedItemId = R.id.nav_home
+        binding.bottomBar.selectedItemId = R.id.nav_home
+
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val name = currentUser?.displayName.toString()
+        val mail = currentUser?.email.toString()
+        val phoneNumber = currentUser?.phoneNumber.toString()
+        val imageUrl = currentUser?.photoUrl.toString()
+
+
+        val db = Firebase.firestore
+
+        val user = hashMapOf(
+            "name" to name,
+            "mail" to mail,
+            "phoneNumber" to phoneNumber,
+            "imageUrl" to imageUrl
+        )
+
+
+        db.collection("users").document(mail).set(user).addOnSuccessListener {
+
+        }.addOnFailureListener {
+
+        }
 
 
     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen_8">
+
+    <TextView
+        android:id="@+id/mail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_8"
+        app:layout_constraintEnd_toStartOf="@id/accept"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_8"
+        android:text="Accept"
+        android:textColor="@color/dark_green"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/mail"
+        app:layout_constraintEnd_toStartOf="@id/deny"
+        app:layout_constraintTop_toTopOf="@id/mail" />
+
+    <TextView
+        android:id="@+id/deny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deny"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mail" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

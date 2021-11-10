@@ -1,5 +1,6 @@
 package com.d4d5.myfamily
 
+import android.content.Context
 import android.os.Bundle
 import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.widget.ImageView
+import com.d4d5.myfamily.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,18 +22,26 @@ import kotlinx.coroutines.withContext
 class HomeFragment : Fragment() {
 
     lateinit var inviteAdapter: InviteAdapter
+    lateinit var mContext: Context
     private val listContacts: ArrayList<ContactModel> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext = context
+    }
+
+    lateinit var binding: FragmentHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,9 +78,8 @@ class HomeFragment : Fragment() {
 
         val adapter = MemberAdapter(listMembers)
 
-        val recycler = requireView().findViewById<RecyclerView>(R.id.recycler_member)
-        recycler.layoutManager = LinearLayoutManager(requireContext())
-        recycler.adapter = adapter
+        binding.recyclerMember.layoutManager = LinearLayoutManager(mContext)
+        binding.recyclerMember.adapter = adapter
 
 
 
@@ -90,16 +99,16 @@ class HomeFragment : Fragment() {
         }
 
 
-        val inviteRecycler = requireView().findViewById<RecyclerView>(R.id.recycler_invite)
-        inviteRecycler.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        inviteRecycler.adapter = inviteAdapter
+
+        binding.recyclerInvite.layoutManager =
+            LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerInvite.adapter = inviteAdapter
 
 
-        val threeDots = requireView().findViewById<ImageView>(R.id.icon_three_dots)
-        threeDots.setOnClickListener {
 
-            SharedPref.putBoolean(PrefConstants.IS_USER_LOGGED_IN,false)
+        binding.iconThreeDots.setOnClickListener {
+
+            SharedPref.putBoolean(PrefConstants.IS_USER_LOGGED_IN, false)
 
             FirebaseAuth.getInstance().signOut()
 
@@ -108,7 +117,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun fetchDatabaseContacts() {
-        val database = MyFamilyDatabase.getDatabase(requireContext())
+        val database = MyFamilyDatabase.getDatabase(mContext)
 
         database.contactDao().getAllContacts().observe(viewLifecycleOwner) {
 
@@ -124,7 +133,7 @@ class HomeFragment : Fragment() {
 
     private suspend fun insertDatabaseContacts(listContacts: ArrayList<ContactModel>) {
 
-        val database = MyFamilyDatabase.getDatabase(requireContext())
+        val database = MyFamilyDatabase.getDatabase(mContext)
 
         database.contactDao().insertAll(listContacts)
 
@@ -134,7 +143,7 @@ class HomeFragment : Fragment() {
     private fun fetchContacts(): ArrayList<ContactModel> {
 
         Log.d("FetchContact89", "fetchContacts: start")
-        val cr = requireActivity().contentResolver
+        val cr = mContext.contentResolver
         val cursor = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
 
         val listContacts: ArrayList<ContactModel> = ArrayList()
